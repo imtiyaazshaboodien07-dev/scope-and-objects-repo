@@ -14,13 +14,16 @@ function modifyVariables() {
     console.log("Cannot modify localCount because it is not here.");
 }
 
-function Student(name,age,subject) {
+function Student(name, age, subject) {
     this.name= name;
     this.age = age;
     this.subject = subject;
     this.displayInfo = function() {
         console.log(`${this.name} - Age: ${this.age}, Subject: ${this.subject}`);
     };
+    this.enrollInfo = function() {
+        console.log(`${this.name} - Age: ${this.age}, is enrolled in ${this.subject}`);
+    }
 }
 
 let student1 = new Student("Imtiyaaz", 19, "Web Designer");
@@ -29,14 +32,6 @@ let student3 = new Student("Natheefah", 18, "Software Developer");
 let student4 = new Student("Aiden", 23, "Cybersecurity Analyst");
 let student5 = new Student("Storm", 19, "Robotics Engineer");
 let student6 = new Student("Taaraa", 19, "Geologist");
-
-console.log("\nStudent Information:");
-student1.displayInfo();
-student2.displayInfo();
-student3.displayInfo();
-student4.displayInfo();
-student5.displayInfo();
-student6.displayInfo();
 
 let school = {
     name: "LD Academy",
@@ -58,6 +53,10 @@ console.log("Principle Name:", school.principle.name);
 console.log("Principle Experience:", school.principle.experience);
 console.log("Schedule:", school.schedule.days.join(", "), school.schedule.time);
 console.log("Students Enrolled:");
+console.log("\nEnrollment Information:");
+school.students.forEach(student => student.enrollInfo());
+
+console.log("\nStudent Information:");
 school.students.forEach(student => student.displayInfo());
 
 console.log("\n--- SCOPE DEEMONSTRATION ---");
